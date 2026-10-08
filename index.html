@@ -1,0 +1,1910 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2260%22%20height%3D%2260%22%20rx%3D%2214%22%20fill%3D%22%23f5f0e4%22%2F%3E%0A%3Cpath%20d%3D%22M19%2013h21l8%208v27a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V18a5%205%200%200%201%205-5z%22%20fill%3D%22%236c8f6a%22%2F%3E%0A%3Cpath%20d%3D%22M40%2013v9h9%22%20fill%3D%22%23a8c49b%22%2F%3E%0A%3Cpath%20d%3D%22M22%2029h18%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M22%2038h12%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M39%2036l6%205-6%205%22%20fill%3D%22none%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M43%2041H31%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E">
+<link rel="shortcut icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2260%22%20height%3D%2260%22%20rx%3D%2214%22%20fill%3D%22%23f5f0e4%22%2F%3E%0A%3Cpath%20d%3D%22M19%2013h21l8%208v27a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V18a5%205%200%200%201%205-5z%22%20fill%3D%22%236c8f6a%22%2F%3E%0A%3Cpath%20d%3D%22M40%2013v9h9%22%20fill%3D%22%23a8c49b%22%2F%3E%0A%3Cpath%20d%3D%22M22%2029h18%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M22%2038h12%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M39%2036l6%205-6%205%22%20fill%3D%22none%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M43%2041H31%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E">
+<title></title>
+<style>
+:root{
+  --bg:#f5f0e4;
+  --bg2:#eee8d8;
+  --panel:#fffdf7;
+  --panel2:#f2f6ed;
+  --border:#cdd8c7;
+  --text:#263228;
+  --muted:#6e7a6b;
+  --accent:#6c8f6a;
+  --accent-strong:#4f7651;
+  --accent-soft:#dfeadd;
+  --accent-soft2:#edf3e9;
+  --danger:#a86262;
+  --danger-soft:#f3e2dd;
+  --warn:#9a7b35;
+  --warn-soft:#f6ecd0;
+  --shadow:0 14px 38px rgba(65,77,61,.13);
+  --drop:#edf4e8;
+  --table-alt:#faf8f0;
+  --thead:#e5ede0;
+  --log:#f1eee5;
+}
+:root[data-theme="dark"]{
+  --bg:#182019;
+  --bg2:#202920;
+  --panel:#232d24;
+  --panel2:#2a352b;
+  --border:#425143;
+  --text:#f2eadb;
+  --muted:#b5b6a7;
+  --accent:#8eac82;
+  --accent-strong:#a6c49a;
+  --accent-soft:#344735;
+  --accent-soft2:#2c3b2d;
+  --danger:#c98787;
+  --danger-soft:#563c3b;
+  --warn:#d0b66d;
+  --warn-soft:#4c442c;
+  --shadow:0 14px 38px rgba(0,0,0,.22);
+  --drop:#29372a;
+  --table-alt:#263128;
+  --thead:#303d31;
+  --log:#1e271f;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:linear-gradient(150deg,var(--bg),var(--bg2));
+  color:var(--text);
+  font-family:Segoe UI,Roboto,Arial,sans-serif;
+}
+.app{max-width:1380px;margin:0 auto;padding:22px}
+.topline{
+  display:flex;align-items:flex-start;gap:16px;justify-content:space-between;margin-bottom:16px
+}
+h1{font-size:25px;margin:0 0 5px;font-weight:750}
+
+.title-row{display:flex;align-items:center;gap:10px}
+.app-icon{
+  width:34px;height:34px;flex:0 0 34px;
+  border-radius:9px;
+  box-shadow:0 4px 12px rgba(65,77,61,.14)
+}
+
+.sub{font-size:13px;color:var(--muted);line-height:1.45}
+.top-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.linkedin-link{width:34px;height:34px;display:grid;place-items:center;border:1px solid color-mix(in srgb, #0a66c2 45%, var(--border));border-radius:10px;background:linear-gradient(145deg,#0a75d2,#075da8);box-shadow:0 2px 5px color-mix(in srgb, #0a66c2 25%, transparent);text-decoration:none;transition:transform .15s ease,filter .15s ease}
+.linkedin-link:hover{transform:translateY(-1px);filter:brightness(1.06)}
+.linkedin-link svg{width:20px;height:20px}
+.theme-btn{
+  flex:0 0 auto;
+  border:1px solid var(--border);background:var(--panel);color:var(--text);
+  padding:9px 12px;border-radius:10px;cursor:pointer;font-weight:650
+}
+.toolbar{
+  position:sticky;top:0;z-index:20;
+  display:grid;grid-template-columns:minmax(0,1fr) auto;gap:10px 14px;align-items:center;
+  background:color-mix(in srgb, var(--panel) 95%, transparent);
+  border:1px solid var(--border);border-radius:14px;padding:12px;
+  box-shadow:var(--shadow);backdrop-filter:blur(8px);margin-bottom:12px
+}
+.source-actions,.file-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.file-actions{justify-content:flex-end}
+button,.file-fallback{
+  border:1px solid var(--border);background:var(--panel2);color:var(--text);
+  border-radius:9px;padding:9px 12px;cursor:pointer;font-size:12px;font-weight:700
+}
+button:hover,.file-fallback:hover{filter:brightness(.98);border-color:var(--accent)}
+button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button.success{background:var(--accent-strong);border-color:var(--accent-strong);color:#fff}
+button.danger{background:var(--danger-soft);border-color:#d6b9b2;color:var(--danger)}
+button:disabled{opacity:.42;cursor:not-allowed}
+.file-fallback input{display:none}
+.spacer{flex:1}
+.options{grid-column:1/-1;display:grid;grid-template-columns:minmax(330px,1.25fr) minmax(250px,.8fr) minmax(330px,1fr);gap:10px 12px;align-items:center}
+.sequence-wrap,.affix-wrap,.lower-options{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.sequence-wrap{justify-content:flex-end;justify-self:end}
+.affix-wrap{justify-content:flex-end}
+.lower-options{grid-column:2/-1;justify-content:flex-start;padding-left:8px;border-left:1px solid var(--border)}
+.options label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px}
+
+.suffix-wrap{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-size:12px;
+  color:var(--muted);
+}
+.suffix-input{
+  width:150px;
+  min-width:100px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:8px;
+  padding:7px 9px;
+  outline:none;
+}
+.suffix-input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+
+.replace-wrap{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  flex-wrap:wrap;
+  padding-left:8px;
+  border-left:1px solid var(--border);
+}
+.replace-wrap label{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700;
+}
+.replace-input{
+  width:145px;
+  min-width:100px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:8px;
+  padding:7px 9px;
+  outline:none;
+}
+.replace-input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.replace-arrow{
+  color:var(--accent-strong);
+  font-weight:900;
+}
+
+.sequence-toggle{display:flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--border);border-radius:9px;background:var(--panel2);color:var(--text);font-size:12px;font-weight:750}
+.sequence-toggle input{accent-color:var(--accent-strong)}
+
+.date-stamp-wrap{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+  padding:7px 9px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--panel2);
+  color:var(--text);
+  font-size:12px;
+}
+.date-stamp-wrap strong{font-size:12px}
+.date-mode{
+  display:flex;
+  align-items:center;
+  gap:4px;
+  white-space:nowrap;
+}
+.date-mode input{accent-color:var(--accent-strong)}
+.manual-date{
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:8px;
+  padding:6px 8px;
+  outline:none;
+  font:inherit;
+}
+.manual-date:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.manual-date:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+}
+.date-stamp-value{
+  font-weight:800;
+  color:var(--accent-strong);
+  white-space:nowrap;
+}
+
+@media(max-width:900px){.options{grid-template-columns:1fr 1fr}.affix-wrap{justify-content:flex-start}.lower-options{grid-column:1/-1;padding-left:0;border-left:0;border-top:1px solid var(--border);padding-top:10px}}
+@media(max-width:620px){.toolbar{display:flex;flex-wrap:wrap}.source-actions,.file-actions{width:100%;justify-content:flex-start}.options{display:flex;width:100%}.sequence-wrap,.affix-wrap,.lower-options{justify-content:flex-start;padding-left:0;border-left:0;width:100%}.lower-options{border-top:1px solid var(--border);padding-top:10px}}
+
+.rename-all-wrap{
+  display:flex;
+  align-items:center;
+  gap:7px;
+  flex-wrap:wrap;
+  padding:7px 9px;
+  border:1px solid var(--border);
+  border-radius:9px;
+  background:var(--panel2);
+}
+.rename-all-wrap strong{
+  font-size:12px;
+}
+.rename-all-input{
+  width:170px;
+  min-width:120px;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:8px;
+  padding:7px 9px;
+  outline:none;
+}
+.rename-all-input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 15%, transparent);
+}
+.rename-all-example{
+  font-size:11px;
+  color:var(--accent-strong);
+  font-weight:800;
+  white-space:nowrap;
+}
+.replace-under-rename{grid-column:1/-1;display:flex;justify-content:center;align-items:center;padding-left:8px;border-left:1px solid var(--border)}
+
+.option-disabled{opacity:.48;filter:saturate(.65)}
+.preview-panel{margin-bottom:12px;background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.preview-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px 14px;border-bottom:1px solid var(--border);background:var(--panel2)}
+.preview-title{font-size:13px;font-weight:800}
+.preview-sub{font-size:11px;color:var(--muted)}
+.preview-mode{margin-left:auto;font-size:11px;font-weight:800;color:var(--accent-strong);background:var(--accent-soft);padding:4px 8px;border-radius:999px}
+.preview-body{padding:10px 14px}
+.preview-empty{color:var(--muted);font-size:12px;padding:8px 0}
+.preview-item{display:grid;grid-template-columns:minmax(220px,1fr) 34px minmax(220px,1fr);gap:8px;align-items:center;padding:7px 0;border-bottom:1px dashed var(--border);font-size:12px}
+.preview-item:last-child{border-bottom:none}
+.preview-old{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.preview-arrow{text-align:center;color:var(--accent-strong);font-weight:900}
+.preview-new{color:var(--accent-strong);font-weight:750;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media(max-width:760px){.preview-item{grid-template-columns:1fr}.preview-arrow{text-align:left}}
+
+
+.drop-zone{
+  margin-bottom:12px;padding:25px 16px;text-align:center;cursor:pointer;
+  border:2px dashed var(--accent);background:var(--drop);border-radius:14px;
+  transition:.15s ease;box-shadow:var(--shadow)
+}
+.drop-zone.dragover{transform:translateY(-1px);background:var(--accent-soft);border-style:solid}
+.drop-title{font-size:15px;font-weight:750;margin-bottom:5px}
+.drop-sub{font-size:12px;color:var(--muted)}
+
+.output-row{
+  display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:12px;
+  background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:10px 12px
+}
+.output-label{font-size:12px;color:var(--muted);font-weight:700}
+.output-name{
+  font-size:12px;font-weight:750;color:var(--accent-strong);
+  max-width:650px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap
+}
+.output-help{font-size:11px;color:var(--muted)}
+.name-builder{
+  display:grid;grid-template-columns:minmax(230px,1fr) minmax(230px,1fr);
+  gap:14px;align-items:center;margin-bottom:12px;padding:12px 14px;
+  background:var(--panel);border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow)
+}
+.name-builder .affix-wrap{justify-content:flex-start}
+.name-builder > .affix-wrap:nth-child(2){justify-content:flex-end;justify-self:stretch}
+.name-example{grid-column:1/-1;justify-self:center;width:min(100%,720px);text-align:center;min-width:0;padding-top:2px}
+.name-example-label{display:block;font-size:11px;color:var(--muted);font-weight:800;margin:8px 0 4px;text-transform:uppercase}
+.name-example-value{display:block;color:var(--accent-strong);font-size:13px;font-weight:800;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.name-example-original{color:var(--text);font-weight:700}
+.name-example-arrow{display:block;color:var(--accent-strong);font-size:18px;font-weight:900;line-height:1.15;margin:5px 0}
+.name-builder-actions{grid-column:1/-1;display:flex;justify-content:center;gap:12px;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--border)}
+@media(max-width:900px){.name-builder{grid-template-columns:1fr}.name-builder .affix-wrap,.name-builder > .affix-wrap:nth-child(2){justify-content:center}.name-builder-actions{grid-column:auto}.replace-under-rename{grid-column:1;padding-left:0;border-left:0}}
+
+.output-status{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:800;
+  background:var(--accent-soft);
+  color:var(--accent-strong);
+  white-space:nowrap;
+}
+.output-status.warn{background:var(--warn-soft);color:var(--warn)}
+.output-status.error{background:var(--danger-soft);color:var(--danger)}
+
+.settings-modal{
+  position:fixed;inset:0;z-index:10020;display:none;place-items:center;
+  background:rgba(16,42,67,.35);padding:18px
+}
+.settings-modal.open{display:grid}
+.settings-card{
+  width:min(620px,100%);
+  max-height:calc(100vh - 36px);
+  overflow:auto;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 22px 60px rgba(16,42,67,.25)
+}
+.settings-head{
+  display:flex;align-items:center;gap:12px;padding:15px 16px;
+  background:#102A43;color:#fff
+}
+.settings-head strong{font-size:17px}
+.settings-close-x{
+  margin-left:auto;border:0;background:transparent;color:#fff;
+  font-size:22px;padding:4px 8px
+}
+.settings-body{padding:17px}
+.settings-section{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--panel2);
+  padding:14px
+}
+.settings-section-title{
+  font-size:13px;font-weight:800;margin-bottom:10px
+}
+.settings-row{
+  display:grid;
+  grid-template-columns:145px minmax(0,1fr);
+  gap:8px 10px;
+  align-items:center;
+  margin-bottom:9px
+}
+.settings-row:last-child{margin-bottom:0}
+.settings-label{
+  font-size:12px;
+  color:var(--muted);
+  font-weight:700
+}
+.settings-path{
+  width:100%;
+  min-width:0;
+  border:1px solid var(--border);
+  background:var(--panel);
+  color:var(--text);
+  border-radius:8px;
+  padding:8px 9px;
+  font:inherit
+}
+.settings-status{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.45
+}
+.settings-note{
+  margin-top:10px;
+  font-size:11px;
+  color:var(--muted);
+  line-height:1.45
+}
+.settings-actions{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:12px
+}
+.settings-foot{
+  display:flex;
+  justify-content:flex-end;
+  padding:0 17px 17px
+}
+@media(max-width:650px){
+  .settings-row{grid-template-columns:1fr}
+}
+
+
+.panel{
+  background:var(--panel);border:1px solid var(--border);border-radius:14px;
+  overflow:hidden;box-shadow:var(--shadow)
+}
+.summary{
+  display:flex;flex-wrap:wrap;gap:15px;align-items:center;
+  padding:12px 15px;border-bottom:1px solid var(--border);font-size:12px
+}
+.summary strong{font-size:13px}
+.folder-name{
+  color:var(--accent-strong);font-weight:700;max-width:500px;overflow:hidden;
+  text-overflow:ellipsis;white-space:nowrap
+}
+.table-wrap{overflow:auto;max-height:65vh}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+th{
+  position:sticky;top:0;z-index:5;background:var(--thead);
+  border-bottom:1px solid var(--border);font-size:11px;text-align:left;padding:9px 7px
+}
+td{border-bottom:1px solid var(--border);padding:7px;font-size:12px;vertical-align:middle}
+tr.item-row{background:var(--panel)}
+tr.item-row:nth-child(even){background:var(--table-alt)}
+tr.item-row:hover{background:var(--accent-soft2)}
+tr.dragging{opacity:.42}
+tr.drag-over{outline:2px solid var(--accent);outline-offset:-2px}
+.col-drag{width:38px;text-align:center}.col-order{width:68px;text-align:center}
+.col-date{width:112px}.col-status{width:100px}.col-actions{width:128px}
+.drag-handle{cursor:grab;user-select:none;font-size:19px;color:var(--accent)}
+.order-badge{
+  display:inline-grid;place-items:center;min-width:34px;height:28px;padding:0 8px;
+  border-radius:8px;background:var(--accent-soft);font-weight:800;color:var(--accent-strong)
+}
+.filename,.newname{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.newname{color:var(--accent-strong);font-weight:650}
+.date-ok{color:var(--accent-strong);font-weight:800}.date-missing{color:var(--warn);font-weight:800}
+.status{
+  display:inline-block;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:800
+}
+.status.ready{background:var(--accent-soft);color:var(--accent-strong)}
+.status.manual{background:var(--warn-soft);color:var(--warn)}
+.actions{display:flex;gap:4px}
+.actions button{min-width:29px;padding:5px 7px;border-radius:7px}
+.remove-btn{background:var(--danger-soft)!important;color:var(--danger)!important;border-color:#d9b9b3!important}
+.empty{padding:50px 20px;text-align:center;color:var(--muted)}
+.log{
+  margin-top:12px;padding:11px 13px;border:1px solid var(--border);border-radius:11px;
+  background:var(--log);color:var(--text);font-family:Consolas,monospace;font-size:11px;
+  max-height:160px;overflow:auto;display:none;white-space:pre-wrap
+}
+.notice{
+  margin-bottom:12px;padding:10px 12px;border:1px solid var(--border);
+  border-radius:10px;background:var(--warn-soft);color:var(--warn);font-size:11px
+}
+
+body.external-drag .drop-zone{
+  background:var(--accent-soft);
+  border-style:solid;
+  border-width:3px;
+  transform:scale(1.004);
+  box-shadow:0 0 0 5px color-mix(in srgb, var(--accent) 18%, transparent), var(--shadow);
+}
+body.external-drag .drop-title::after{
+  content:" — SOLTE PARA ADICIONAR";
+  color:var(--accent-strong);
+}
+
+
+.toast{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:9999;
+  min-width:260px;
+  max-width:460px;
+  padding:11px 14px;
+  border:1px solid var(--border);
+  border-radius:11px;
+  background:var(--panel);
+  color:var(--text);
+  box-shadow:var(--shadow);
+  font-size:12px;
+  font-weight:700;
+  opacity:0;
+  transform:translateY(12px);
+  pointer-events:none;
+  transition:.18s ease;
+}
+.toast.show{opacity:1;transform:translateY(0)}
+.toast.success{border-color:var(--accent);background:var(--accent-soft2)}
+.toast.error{border-color:var(--danger);background:var(--danger-soft);color:var(--danger)}
+
+
+.about-modal{
+  position:fixed;inset:0;z-index:10000;display:none;place-items:center;
+  background:rgba(16,42,67,.35);padding:18px
+}
+.about-modal.open{display:grid}
+.about-card{
+  width:min(520px,100%);max-height:calc(100vh - 36px);overflow:auto;
+  background:var(--panel);border:1px solid var(--border);border-radius:16px;
+  box-shadow:0 22px 60px rgba(16,42,67,.25)
+}
+.about-head{
+  display:flex;align-items:center;gap:12px;padding:15px 16px;
+  background:#102A43;color:#fff
+}
+.about-head img{width:40px;height:40px;border-radius:10px}
+.about-head strong{font-size:17px}
+.about-head small{display:block;opacity:.8;margin-top:2px}
+.about-close-x{
+  margin-left:auto;border:0;background:transparent;color:#fff;
+  font-size:22px;padding:4px 8px
+}
+.about-body{padding:17px;line-height:1.5;font-size:13px}
+.about-body b{color:var(--accent-strong)}
+.about-grid{display:grid;grid-template-columns:115px 1fr;gap:7px 10px;margin:14px 0}
+.about-foot{display:flex;justify-content:flex-end;padding:0 17px 17px}
+
+.layout-editor{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;align-items:center;gap:9px;padding:9px 11px;border:1px solid var(--border);border-radius:11px;background:var(--panel);box-shadow:var(--shadow);font-size:11px;color:var(--text)}
+.layout-editor label{display:flex;align-items:center;gap:5px;font-weight:800;cursor:pointer}
+.layout-editor button{padding:6px 8px;font-size:11px}
+body.layout-editing [data-movable]{outline:1px dashed color-mix(in srgb, var(--accent) 75%, transparent);outline-offset:3px;cursor:grab}
+body.layout-editing [data-movable]:active{cursor:grabbing}
+
+/* Disposição fixa aprovada. */
+.toolbar{grid-template-columns:minmax(0,1fr) auto}
+.options{grid-template-columns:minmax(520px,1.55fr) minmax(390px,.75fr);grid-template-rows:auto auto auto;min-height:158px;gap:16px 20px}
+.rename-all-wrap{grid-column:1;grid-row:1;justify-self:start}
+.replace-under-rename{grid-column:2;grid-row:1;justify-self:end;justify-content:flex-end}
+.strip-option{grid-column:1;grid-row:2;align-self:center;width:100%;padding-top:12px;border-top:1px solid var(--border)}
+.sequence-wrap{grid-column:1;grid-row:3;justify-self:start;justify-content:flex-start}
+.date-stamp-wrap{grid-column:2;grid-row:2 / span 2;justify-self:end}
+.name-builder-actions{display:none}
+@media(max-width:900px){.options{grid-template-columns:1fr;grid-template-rows:auto;min-height:0}.rename-all-wrap,.replace-under-rename,.strip-option,.sequence-wrap,.date-stamp-wrap{grid-column:1;grid-row:auto;justify-self:start}.replace-under-rename{justify-content:flex-start}.date-stamp-wrap{justify-self:stretch}.strip-option{border-top:0;padding-top:0}}
+
+@media(max-width:900px){
+  .app{padding:10px}.options{width:100%}.col-status,td.col-status{display:none}
+}
+
+.access-counter{
+  min-width:118px;height:48px;display:flex;align-items:center;gap:10px;padding:0 13px;
+  border:1px solid var(--border);border-radius:12px;background:var(--panel);
+  box-shadow:0 4px 12px rgba(65,77,61,.10)
+}
+.access-counter-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:9px;background:var(--accent-soft);color:var(--accent-strong)}
+.access-counter-icon svg{width:17px;height:17px}
+.access-counter-copy{display:grid;gap:2px;line-height:1}
+.access-counter-copy small{color:var(--muted);font-size:8px;font-weight:800;letter-spacing:.1em}
+.access-counter-copy strong{color:var(--text);font-size:17px;font-weight:800}
+@media(max-width:720px){.access-counter{order:2}.top-actions{width:100%}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topline">
+    <div>
+      <div class="title-row">
+        <img class="app-icon" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%0A%3Crect%20x%3D%222%22%20y%3D%222%22%20width%3D%2260%22%20height%3D%2260%22%20rx%3D%2214%22%20fill%3D%22%23f5f0e4%22%2F%3E%0A%3Cpath%20d%3D%22M19%2013h21l8%208v27a5%205%200%200%201-5%205H19a5%205%200%200%201-5-5V18a5%205%200%200%201%205-5z%22%20fill%3D%22%236c8f6a%22%2F%3E%0A%3Cpath%20d%3D%22M40%2013v9h9%22%20fill%3D%22%23a8c49b%22%2F%3E%0A%3Cpath%20d%3D%22M22%2029h18%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M22%2038h12%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M39%2036l6%205-6%205%22%20fill%3D%22none%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%2F%3E%0A%3Cpath%20d%3D%22M43%2041H31%22%20stroke%3D%22%23f5f0e4%22%20stroke-width%3D%223.5%22%20stroke-linecap%3D%22round%22%2F%3E%0A%3C%2Fsvg%3E" alt="">
+        <h1 id="appName"></h1>
+      </div>
+      <div class="sub">
+        Pasta de Saída persistente: configure uma única vez em Configurações e o destino será reutilizado automaticamente.
+      </div>
+    </div>
+    <div class="top-actions"><div class="access-counter" aria-label="Contador de acessos"><span class="access-counter-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="access-counter-copy"><small>ACESSOS</small><strong id="accessCounterValue">...</strong></span></div><a class="linkedin-link" href="https://www.linkedin.com/in/epitaciosouza/" target="_blank" rel="noopener noreferrer" aria-label="Perfil de Epitacio Souza no LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" rx="5" fill="#fff"/><text x="5" y="18" fill="#0a66c2" font-family="Arial, sans-serif" font-size="15" font-weight="800">in</text></svg></a><button id="aboutBtn" class="theme-btn">Sobre</button><button id="settingsBtn" class="theme-btn">Configurações</button><button id="themeBtn" class="theme-btn">Tema escuro</button></div>
+  </div>
+
+  <div id="compatNotice" class="notice" style="display:none"></div>
+
+  <div class="toolbar">
+    <div class="source-actions">
+      <button id="btnFolder" class="primary">Selecionar pasta de origem</button>
+      <label class="file-fallback">Carregar arquivos<input id="fallbackFiles" type="file" multiple></label>
+    </div>
+    <div class="file-actions">
+      <button id="btnAutoSort" disabled>Ordenar pelas datas</button>
+      <button id="btnApply" class="success" disabled>Renomear arquivos</button>
+      <button id="btnReset" class="danger" disabled>Limpar tudo</button>
+    </div>
+    <div class="options">
+      <div class="rename-all-wrap">
+        <label class="sequence-toggle" style="padding:0;border:0;background:transparent">
+          <input type="checkbox" id="chkRenameAll">
+          Substituir todos os nomes
+        </label>
+        <label for="renameAllBase"><strong>Nome base:</strong></label>
+        <input id="renameAllBase" class="rename-all-input" type="text" placeholder="Ex.: Nome" disabled>
+        <span id="renameAllExample" class="rename-all-example">Nome.001</span>
+      </div>
+
+      <div class="replace-under-rename">
+        <div class="replace-wrap"><label for="replaceFrom">Trocar:</label><input id="replaceFrom" class="replace-input" type="text" placeholder="Texto atual"><span class="replace-arrow">→</span><label for="replaceTo">Por:</label><input id="replaceTo" class="replace-input" type="text" placeholder="Novo texto"></div>
+      </div>
+
+      <div class="sequence-wrap">
+        <label class="sequence-toggle"><input type="checkbox" id="chkSequence" checked>Usar sequência numérica</label>
+        <div class="suffix-wrap" id="startWrap">
+          <label for="startNumber">Início:</label>
+          <input id="startNumber" class="suffix-input" type="number" min="1" step="1" placeholder="1" style="width:90px">
+        </div>
+      </div>
+
+      <div class="date-stamp-wrap" title="Adiciona a data escolhida no final do nome, antes da extensão">
+        <strong>Carimbo de data:</strong>
+        <label class="date-mode"><input type="radio" name="dateStampMode" id="dateModeNone" value="none" checked> Nenhum</label>
+        <label class="date-mode"><input type="radio" name="dateStampMode" id="dateModeCurrent" value="current"> Atual</label>
+        <label class="date-mode"><input type="radio" name="dateStampMode" id="dateModeManual" value="manual"> Manual</label>
+        <input id="manualDateInput" class="manual-date" type="date" disabled aria-label="Selecionar data manual">
+        <span id="dateStampPreview" class="date-stamp-value"></span>
+      </div>
+
+      <div class="strip-option">
+        <label><input type="checkbox" id="chkStrip" checked> Remover numeração anterior</label>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="name-builder" aria-label="Composição do nome">
+    <div class="affix-wrap"><div class="suffix-wrap"><label for="prefixInput">Prefixo:</label><input id="prefixInput" class="suffix-input" type="text" value="" placeholder=""></div></div>
+    <div class="affix-wrap"><div class="suffix-wrap"><label for="suffixInput">Sufixo:</label><input id="suffixInput" class="suffix-input" type="text" placeholder="Ex.:  (Impactos)"></div></div>
+    <div class="name-example">
+      <span class="name-example-label">Arquivo original</span>
+      <span id="nameExampleOriginal" class="name-example-value name-example-original">Carregue arquivos para ver o resultado</span>
+      <span class="name-example-arrow">↓</span>
+      <span class="name-example-label">Novo nome</span>
+      <span id="nameExampleNew" class="name-example-value">Carregue arquivos para ver o resultado</span>
+    </div>
+  </div>
+
+  <div id="dropZone" class="drop-zone">
+    <div class="drop-title">Arraste arquivos ou uma pasta para dentro desta janela</div>
+    <div class="drop-sub">Você pode soltar aqui ou em qualquer área livre do aplicativo. Também é possível clicar para selecionar arquivos.</div>
+  </div>
+
+  <div class="output-row">
+    <span class="output-label">Pasta de saída automática:</span>
+    <span id="outputName" class="output-name">Nenhuma pasta configurada</span>
+    <span id="outputStatus" class="output-status warn">Não configurada</span>
+    <span class="output-help">Todos os arquivos processados são direcionados para esta pasta. Para alterar, use Configurações → Pasta de Saída.</span>
+  </div>
+
+  <div class="preview-panel">
+    <div class="preview-head">
+      <div class="preview-title">Teste da renomeação</div>
+      <div class="preview-sub">Prévia em tempo real com até 5 arquivos da lista.</div>
+      <div id="previewMode" class="preview-mode">Sequência numérica ativa</div>
+    </div>
+    <div id="previewBody" class="preview-body">
+      <div class="preview-empty">Carregue arquivos para visualizar como os nomes serão gerados.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="summary">
+      <span><strong id="total">0</strong> arquivos na lista</span>
+      <span><strong id="withDate">0</strong> com data</span>
+      <span><strong id="withoutDate">0</strong> sem data</span>
+      <span><strong id="removedCount">0</strong> removidos da lista</span>
+      <span class="spacer"></span>
+      <span id="folderName" class="folder-name">Nenhuma origem selecionada</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-drag"></th>
+            <th class="col-order">Número</th>
+            <th>Nome atual</th>
+            <th class="col-date">Data detectada</th>
+            <th>Novo nome</th>
+            <th class="col-status">Situação</th>
+            <th class="col-actions">Ações</th>
+          </tr>
+        </thead>
+        <tbody id="tbody">
+          <tr><td colspan="7" class="empty">Selecione, carregue ou arraste os arquivos para começar.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="settingsModal" class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div class="settings-card">
+      <div class="settings-head">
+        <strong id="settingsTitle">Configurações</strong>
+        <button id="settingsCloseX" class="settings-close-x" type="button" title="Fechar">×</button>
+      </div>
+      <div class="settings-body">
+        <div class="settings-section">
+          <div class="settings-section-title">Pasta de Saída</div>
+          <div class="settings-row">
+            <div class="settings-label">Pasta de Saída:</div>
+            <input id="settingsOutputPath" class="settings-path" type="text" readonly value="Não configurada">
+          </div>
+          <div class="settings-row">
+            <div class="settings-label">Situação</div>
+            <div id="settingsOutputStatus" class="settings-status">Selecione uma pasta para definir o destino automático.</div>
+          </div>
+          <div class="settings-actions">
+            <button id="btnOutput" type="button" class="primary">Alterar Pasta de Saída</button>
+          </div>
+          <div class="settings-note">
+            A pasta selecionada fica salva localmente e é reutilizada automaticamente nas próximas operações e aberturas.
+            Por segurança, Chrome/Edge não expõem ao HTML local o caminho completo do Windows. O aplicativo mantém o acesso persistente pelo diretório autorizado e exibe “…\NomeDaPasta” como referência.
+          </div>
+        </div>
+      </div>
+      <div class="settings-foot">
+        <button id="settingsCloseBtn" type="button">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="aboutModal" class="about-modal" role="dialog" aria-modal="true" aria-labelledby="aboutTitle">
+    <div class="about-card">
+      <div class="about-head">
+        <img class="app-icon" src="" id="aboutIcon" alt="">
+        <div><strong id="aboutTitle"></strong><small id="aboutVersion"></small></div>
+        <button id="aboutCloseX" class="about-close-x" type="button" title="Fechar">×</button>
+      </div>
+      <div class="about-body">
+        <div>Aplicativo local para organização, prévia e renomeação de arquivos, com ordenação por data, sequência numérica, substituição de texto, nome-base, prefixo e sufixo independentes, carimbo de data e pasta de saída persistente.</div>
+        <div class="about-grid">
+          <b>Versão</b><span id="aboutVersionBody"></span>
+          <b>Release</b><span id="aboutRelease"></span>
+          <b>Módulos</b><span>Renomeação, ordenação, prévia, saída de arquivos e configurações persistentes</span>
+          <b>Desenvolvedor</b><span>EPITACIO SOUZA (DUT8)</span>
+          <b>E-mail</b><span><a href="mailto:epitacio.eng@outlook.com">epitacio.eng@outlook.com</a></span>
+        </div>
+      </div>
+      <div class="about-foot"><button id="aboutCloseBtn" type="button" class="primary">Fechar</button></div>
+    </div>
+  </div>
+
+  <div id="log" class="log"></div>
+  <div id="toast" class="toast"></div>
+</div>
+
+<script>
+(() => {
+  const value = document.getElementById('accessCounterValue');
+  fetch('https://abacus.jasoncameron.dev/hit/epitaciosouza-github-io/es-file-renamer-pageviews-v1')
+    .then(response => {
+      if(!response.ok) throw new Error('Contador indisponível');
+      return response.json();
+    })
+    .then(data => {
+      const count = Number(data && data.value);
+      value.textContent = Number.isFinite(count) ? (count + 56).toLocaleString('pt-BR') : '—';
+    })
+    .catch(() => { value.textContent = '—'; });
+})();
+</script>
+
+<script>
+(() => {
+  'use strict';
+
+  const APP_META = {
+    name: 'ES File Renamer',
+    version: 'v2.03',
+    release: '22/09/2026'
+  };
+
+  const state = {
+    sourceDir: null,
+    outputDir: null,
+    outputPermission: 'unknown',
+    outputPersisted: false,
+    items: [],
+    removed: 0,
+    draggedId: null,
+    sourceWritable: false,
+    sourceMode: 'none' // folder | files | drop
+  };
+
+  const $ = id => document.getElementById(id);
+  const el = {
+    themeBtn:$('themeBtn'), aboutBtn:$('aboutBtn'), settingsBtn:$('settingsBtn'), settingsModal:$('settingsModal'), settingsCloseX:$('settingsCloseX'), settingsCloseBtn:$('settingsCloseBtn'), settingsOutputPath:$('settingsOutputPath'), settingsOutputStatus:$('settingsOutputStatus'), aboutModal:$('aboutModal'), aboutCloseX:$('aboutCloseX'), aboutCloseBtn:$('aboutCloseBtn'), aboutTitle:$('aboutTitle'), aboutVersion:$('aboutVersion'), aboutVersionBody:$('aboutVersionBody'), aboutRelease:$('aboutRelease'), aboutIcon:$('aboutIcon'), appName:$('appName'), compatNotice:$('compatNotice'),
+    btnFolder:$('btnFolder'), fallbackFiles:$('fallbackFiles'),
+    btnAutoSort:$('btnAutoSort'), btnApply:$('btnApply'), btnReset:$('btnReset'),
+    btnOutput:$('btnOutput'),
+    outputName:$('outputName'), outputStatus:$('outputStatus'), dropZone:$('dropZone'),
+    chkRenameAll:$('chkRenameAll'), renameAllBase:$('renameAllBase'), renameAllExample:$('renameAllExample'), chkSequence:$('chkSequence'), chkStrip:$('chkStrip'), dateModeNone:$('dateModeNone'), dateModeCurrent:$('dateModeCurrent'), dateModeManual:$('dateModeManual'), manualDateInput:$('manualDateInput'), dateStampPreview:$('dateStampPreview'), startWrap:$('startWrap'), startNumber:$('startNumber'), prefixInput:$('prefixInput'), suffixInput:$('suffixInput'), replaceFrom:$('replaceFrom'), replaceTo:$('replaceTo'), nameExampleOriginal:$('nameExampleOriginal'), nameExampleNew:$('nameExampleNew'), previewBody:$('previewBody'), previewMode:$('previewMode'),
+    tbody:$('tbody'), total:$('total'), withDate:$('withDate'),
+    withoutDate:$('withoutDate'), removedCount:$('removedCount'),
+    folderName:$('folderName'), log:$('log'), toast:$('toast')
+  };
+
+  function uid(){
+    return crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}_${Math.random()}`;
+  }
+
+  const OUTPUT_DB_NAME='ES_Renomeador_Sequencial';
+  const OUTPUT_DB_VERSION=1;
+  const OUTPUT_DB_STORE='settings';
+  const OUTPUT_HANDLE_KEY='outputDirectoryHandle';
+  const OUTPUT_NAME_KEY='renamerOutputDirectoryName';
+
+  function openOutputDB(){
+    return new Promise((resolve,reject)=>{
+      if(!('indexedDB' in window)){
+        reject(new Error('IndexedDB indisponível neste navegador.'));
+        return;
+      }
+      const req=indexedDB.open(OUTPUT_DB_NAME,OUTPUT_DB_VERSION);
+      req.onupgradeneeded=()=>{
+        const db=req.result;
+        if(!db.objectStoreNames.contains(OUTPUT_DB_STORE)){
+          db.createObjectStore(OUTPUT_DB_STORE);
+        }
+      };
+      req.onsuccess=()=>resolve(req.result);
+      req.onerror=()=>reject(req.error || new Error('Falha ao abrir o armazenamento local.'));
+    });
+  }
+
+  async function idbGet(key){
+    const db=await openOutputDB();
+    try{
+      return await new Promise((resolve,reject)=>{
+        const tx=db.transaction(OUTPUT_DB_STORE,'readonly');
+        const req=tx.objectStore(OUTPUT_DB_STORE).get(key);
+        req.onsuccess=()=>resolve(req.result);
+        req.onerror=()=>reject(req.error);
+      });
+    }finally{
+      db.close();
+    }
+  }
+
+  async function idbSet(key,value){
+    const db=await openOutputDB();
+    try{
+      await new Promise((resolve,reject)=>{
+        const tx=db.transaction(OUTPUT_DB_STORE,'readwrite');
+        tx.objectStore(OUTPUT_DB_STORE).put(value,key);
+        tx.oncomplete=()=>resolve();
+        tx.onerror=()=>reject(tx.error || new Error('Falha ao salvar configuração.'));
+        tx.onabort=()=>reject(tx.error || new Error('Gravação da configuração cancelada.'));
+      });
+    }finally{
+      db.close();
+    }
+  }
+
+  async function idbDelete(key){
+    const db=await openOutputDB();
+    try{
+      await new Promise((resolve,reject)=>{
+        const tx=db.transaction(OUTPUT_DB_STORE,'readwrite');
+        tx.objectStore(OUTPUT_DB_STORE).delete(key);
+        tx.oncomplete=()=>resolve();
+        tx.onerror=()=>reject(tx.error || new Error('Falha ao remover configuração.'));
+      });
+    }finally{
+      db.close();
+    }
+  }
+
+  function splitExtension(name){
+    const idx=name.lastIndexOf('.');
+    if(idx<=0) return {stem:name,ext:''};
+    return {stem:name.slice(0,idx),ext:name.slice(idx)};
+  }
+
+  function stripExistingPrefix(name){
+    const {stem,ext}=splitExtension(name);
+    return stem.replace(/^\s*\d+\s*(?:[.\-–—_)]\s*)+/,'').trimStart()+ext;
+  }
+
+  function detectDate(name){
+    const {stem}=splitExtension(name);
+    const re=/(?:^|[^\d])((?:0?[1-9]|[12]\d|3[01])[.\-_](?:0?[1-9]|1[0-2])[.\-_](?:\d{2}|\d{4}))(?!\d)/g;
+    const all=[...stem.matchAll(re)];
+    for(let i=all.length-1;i>=0;i--){
+      const raw=all[i][1];
+      let [d,m,y]=raw.split(/[.\-_]/).map(Number);
+      if(y<100) y += y>=70 ? 1900 : 2000;
+      const dt=new Date(y,m-1,d);
+      if(dt.getFullYear()===y && dt.getMonth()===m-1 && dt.getDate()===d){
+        return {
+          raw, value:dt.getTime(),
+          key:`${y}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`,
+          display:`${String(d).padStart(2,'0')}.${String(m).padStart(2,'0')}.${String(y).slice(-2)}`
+        };
+      }
+    }
+    return null;
+  }
+
+  function getStartNumber(){
+    const raw=(el.startNumber.value || '').trim();
+    if(raw==='') return 1;
+
+    const n=parseInt(raw,10);
+    return Number.isFinite(n) && n>=1 ? n : 1;
+  }
+
+  // Datas iguais recebem sempre o mesmo número.
+  // O número é definido pela primeira ocorrência de cada data na ordem atual.
+  function numbering(){
+    const dateMap=new Map();
+    let next=getStartNumber();
+    return state.items.map(item=>{
+      if(item.date){
+        if(!dateMap.has(item.date.key)) dateMap.set(item.date.key,next++);
+        return dateMap.get(item.date.key);
+      }
+      return next++;
+    });
+  }
+
+  function replaceAllLiteral(text,search,replacement){
+    if(!search) return text;
+    return text.split(search).join(replacement);
+  }
+
+  function getCurrentDateStamp(){
+    const d=new Date();
+    const dd=String(d.getDate()).padStart(2,'0');
+    const mm=String(d.getMonth()+1).padStart(2,'0');
+    const yy=String(d.getFullYear()).slice(-2);
+    return `${dd}.${mm}.${yy}`;
+  }
+
+  function formatManualDateStamp(value){
+    if(!value) return '';
+    const parts=value.split('-');
+    if(parts.length!==3) return '';
+    const [yyyy,mm,dd]=parts;
+    if(!yyyy || !mm || !dd) return '';
+    return `${dd}.${mm}.${yyyy.slice(-2)}`;
+  }
+
+  function getDateStampMode(){
+    if(el.dateModeCurrent.checked) return 'current';
+    if(el.dateModeManual.checked) return 'manual';
+    return 'none';
+  }
+
+  function getSelectedDateStamp(){
+    const mode=getDateStampMode();
+    if(mode==='current') return getCurrentDateStamp();
+    if(mode==='manual') return formatManualDateStamp(el.manualDateInput.value);
+    return '';
+  }
+
+  function updateDateStampControls(){
+    const mode=getDateStampMode();
+    el.manualDateInput.disabled=mode!=='manual';
+
+    const stamp=getSelectedDateStamp();
+    if(mode==='none'){
+      el.dateStampPreview.textContent='';
+    }else if(mode==='manual' && !stamp){
+      el.dateStampPreview.textContent='Selecione a data';
+    }else{
+      el.dateStampPreview.textContent=`_${stamp}`;
+    }
+  }
+
+  function buildNewName(item,num){
+    const originalParts=splitExtension(item.name);
+
+    if(el.chkRenameAll.checked){
+      const prefix=(el.prefixInput.value || '');
+      const baseName=(el.renameAllBase.value || '');
+      const suffix=(el.suffixInput.value || '');
+      const idx=state.items.findIndex(x=>x.id===item.id);
+      const selectedStamp=getSelectedDateStamp();
+      const dateStamp=selectedStamp ? `_${selectedStamp}` : '';
+
+      if(!el.chkSequence.checked){
+        return `${prefix}${baseName}${suffix}${dateStamp}${originalParts.ext}`;
+      }
+
+      const start=getStartNumber();
+      const seq=String(start + (idx>=0 ? idx : 0)).padStart(3,'0');
+      return `${prefix}${baseName}.${seq}${suffix}${dateStamp}${originalParts.ext}`;
+    }
+
+    let base=item.name;
+    if(el.chkStrip.checked) base=stripExistingPrefix(base);
+
+    let {stem,ext}=splitExtension(base);
+
+    const from=el.replaceFrom.value || '';
+    const to=el.replaceTo.value || '';
+    stem=replaceAllLiteral(stem,from,to);
+
+    const prefix=(el.prefixInput.value || '');
+    const suffix=(el.suffixInput.value || '');
+    const selectedStamp=getSelectedDateStamp();
+    const dateStamp=selectedStamp ? `_${selectedStamp}` : '';
+    const transformed=`${prefix}${stem}${suffix}${dateStamp}${ext}`;
+
+    if(!el.chkSequence.checked) return transformed;
+
+    // A sequência numérica sempre usa ponto + espaço:
+    // 1. Arquivo
+    return `${num}. ${transformed}`;
+  }
+
+  function compareNames(a,b){
+    return a.name.localeCompare(b.name,'pt-BR',{numeric:true,sensitivity:'base'});
+  }
+
+  function autoSort(){
+    state.items = state.items
+      .map((item,idx)=>({...item,_stable:idx}))
+      .sort((a,b)=>{
+        if(a.date && b.date) return (a.date.value-b.date.value)||compareNames(a,b)||(a._stable-b._stable);
+        if(a.date && !b.date) return -1;
+        if(!a.date && b.date) return 1;
+        return a._stable-b._stable;
+      })
+      .map(({_stable,...item})=>item);
+    render();
+    log('Ordenação por data concluída. Datas iguais receberam o mesmo número.');
+  }
+
+  function canProcess(){
+    if(!state.items.length) return false;
+    if(el.chkRenameAll.checked && el.renameAllBase.value==='') return false;
+
+    // Com arquivos arrastados/carregados, o botão fica habilitado.
+    // Se não houver acesso de escrita à origem, o clique solicitará apenas
+    // uma pasta de saída para salvar os arquivos renomeados.
+    return true;
+  }
+
+  function updateApplyText(){
+    el.btnApply.textContent='Renomear arquivos';
+  }
+
+  function updateSequenceControls(){
+    const renameAll=el.chkRenameAll.checked;
+    const enabled=el.chkSequence.checked;
+
+    el.renameAllBase.disabled=!renameAll;
+
+    // A sequência numérica também pode ser usada no modo "Substituir todos os nomes".
+    el.chkSequence.disabled=false;
+    el.startNumber.disabled=!enabled;
+    // Prefixo e Sufixo são independentes e podem ser combinados com qualquer modo.
+    el.prefixInput.disabled=false;
+    el.suffixInput.disabled=false;
+    el.replaceFrom.disabled=renameAll;
+    el.replaceTo.disabled=renameAll;
+    el.chkStrip.disabled=renameAll;
+
+    el.startWrap.classList.toggle('option-disabled',!enabled);
+
+    if(renameAll){
+      const prefix=(el.prefixInput.value || '');
+      const base=(el.renameAllBase.value || 'Nome');
+      const suffix=(el.suffixInput.value || '');
+      if(enabled){
+        const first=String(getStartNumber()).padStart(3,'0');
+        const second=String(getStartNumber()+1).padStart(3,'0');
+        el.renameAllExample.textContent=`${prefix}${base}.${first}${suffix}`;
+        el.previewMode.textContent=`Modo nome único + sequência: ${prefix}${base}.${first}${suffix}, ${prefix}${base}.${second}${suffix}...`;
+      }else{
+        el.renameAllExample.textContent=`${prefix}${base}${suffix}`;
+        el.previewMode.textContent='Modo nome único sem sequência';
+      }
+    }else{
+      el.renameAllExample.textContent='Nome.001';
+      el.previewMode.textContent=enabled ? 'Sequência numérica ativa: 1. Arquivo' : 'Sem sequência numérica';
+    }
+  }
+
+  function renderPreview(){
+    updateSequenceControls();
+    updateDateStampControls();
+
+    if(!state.items.length){
+      el.nameExampleOriginal.textContent='Carregue arquivos para ver o resultado';
+      el.nameExampleNew.textContent='Carregue arquivos para ver o resultado';
+      el.previewBody.innerHTML='<div class="preview-empty">Carregue arquivos para visualizar como os nomes serão gerados.</div>';
+      return;
+    }
+
+    const nums=numbering();
+    const sample=state.items.slice(0,5);
+    el.nameExampleOriginal.textContent=state.items[0].name;
+    el.nameExampleNew.textContent=buildNewName(state.items[0],nums[0]);
+
+    el.previewBody.innerHTML=sample.map((item,idx)=>{
+      const newName=buildNewName(item,nums[idx]);
+      return `
+        <div class="preview-item">
+          <div class="preview-old" title="${esc(item.name)}">${esc(item.name)}</div>
+          <div class="preview-arrow">→</div>
+          <div class="preview-new" title="${esc(newName)}">${esc(newName)}</div>
+        </div>`;
+    }).join('');
+
+    if(state.items.length>5){
+      el.previewBody.innerHTML+=`<div class="preview-empty">+ ${state.items.length-5} arquivo(s) seguem a mesma regra.</div>`;
+    }
+  }
+
+  function render(){
+    renderPreview();
+    const nums=numbering();
+    const dated=state.items.filter(x=>x.date).length;
+    el.total.textContent=state.items.length;
+    el.withDate.textContent=dated;
+    el.withoutDate.textContent=state.items.length-dated;
+    el.removedCount.textContent=state.removed;
+    el.btnAutoSort.disabled=!state.items.length;
+    el.btnApply.disabled=!canProcess();
+    el.btnReset.disabled=!state.items.length;
+    updateApplyText();
+
+    if(!state.items.length){
+      el.tbody.innerHTML='<tr><td colspan="7" class="empty">Selecione, carregue ou arraste os arquivos para começar.</td></tr>';
+      return;
+    }
+
+    el.tbody.innerHTML='';
+    state.items.forEach((item,idx)=>{
+      const num=nums[idx];
+      const newName=buildNewName(item,num);
+      const tr=document.createElement('tr');
+      tr.className='item-row'; tr.draggable=true; tr.dataset.id=item.id;
+
+      tr.innerHTML=`
+        <td class="col-drag"><span class="drag-handle" title="Arrastar para mudar a posição">⋮⋮</span></td>
+        <td class="col-order"><span class="order-badge">${
+          !el.chkSequence.checked ? '—' :
+          el.chkRenameAll.checked ? String(getStartNumber()+idx).padStart(3,'0') :
+          num
+        }</span></td>
+        <td><div class="filename" title="${esc(item.name)}">${esc(item.name)}</div></td>
+        <td class="col-date">${item.date?`<span class="date-ok">${item.date.display}</span>`:`<span class="date-missing">Sem data</span>`}</td>
+        <td><div class="newname" title="${esc(newName)}">${esc(newName)}</div></td>
+        <td class="col-status">${item.date?'<span class="status ready">Automático</span>':'<span class="status manual">Manual</span>'}</td>
+        <td class="col-actions">
+          <div class="actions">
+            <button data-move="-1" title="Subir" ${idx===0?'disabled':''}>▲</button>
+            <button data-move="1" title="Descer" ${idx===state.items.length-1?'disabled':''}>▼</button>
+            <button class="remove-btn" data-remove title="Remover apenas desta lista">✕</button>
+          </div>
+        </td>`;
+
+      tr.addEventListener('dragstart',ev=>{
+        state.draggedId=item.id; tr.classList.add('dragging'); ev.dataTransfer.effectAllowed='move';
+      });
+      tr.addEventListener('dragend',()=>{
+        state.draggedId=null;
+        document.querySelectorAll('.item-row').forEach(r=>r.classList.remove('dragging','drag-over'));
+      });
+      tr.addEventListener('dragover',ev=>{
+        ev.preventDefault();
+        if(state.draggedId && state.draggedId!==item.id) tr.classList.add('drag-over');
+      });
+      tr.addEventListener('dragleave',()=>tr.classList.remove('drag-over'));
+      tr.addEventListener('drop',ev=>{
+        ev.preventDefault(); tr.classList.remove('drag-over');
+        if(!state.draggedId || state.draggedId===item.id) return;
+        const from=state.items.findIndex(x=>x.id===state.draggedId);
+        const to=state.items.findIndex(x=>x.id===item.id);
+        if(from<0||to<0) return;
+        const [moved]=state.items.splice(from,1);
+        state.items.splice(to,0,moved);
+        render();
+      });
+
+      tr.querySelectorAll('[data-move]').forEach(btn=>{
+        btn.addEventListener('click',()=>moveItem(item.id,Number(btn.dataset.move)));
+      });
+      tr.querySelector('[data-remove]').addEventListener('click',()=>removeFromList(item.id));
+      el.tbody.appendChild(tr);
+    });
+  }
+
+  function moveItem(id,delta){
+    const i=state.items.findIndex(x=>x.id===id), j=i+delta;
+    if(i<0||j<0||j>=state.items.length) return;
+    [state.items[i],state.items[j]]=[state.items[j],state.items[i]];
+    render();
+  }
+
+  function removeFromList(id){
+    const i=state.items.findIndex(x=>x.id===id);
+    if(i<0) return;
+    const name=state.items[i].name;
+    state.items.splice(i,1);
+    state.removed++;
+    render();
+    log(`Removido apenas da lista: ${name}. O arquivo original não foi excluído.`);
+  }
+
+  function esc(s){
+    return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;')
+      .replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'","&#039;");
+  }
+
+  function log(msg){
+    el.log.style.display='block';
+    el.log.textContent+=`[${new Date().toLocaleTimeString('pt-BR')}] ${msg}\n`;
+    el.log.scrollTop=el.log.scrollHeight;
+  }
+
+  let toastTimer=null;
+  function toast(msg,type='success'){
+    clearTimeout(toastTimer);
+    el.toast.textContent=msg;
+    el.toast.className=`toast ${type} show`;
+    toastTimer=setTimeout(()=>{ el.toast.className='toast'; },2600);
+  }
+
+  async function selectSourceFolder(){
+    if(!window.showDirectoryPicker){
+      alert('Para selecionar uma pasta com permissão de renomeação, use Google Chrome ou Microsoft Edge atualizado.');
+      return;
+    }
+    try{
+      const dir=await window.showDirectoryPicker({mode:'readwrite'});
+      state.sourceDir=dir; state.sourceWritable=true; state.sourceMode='folder';
+      state.items=[]; state.removed=0;
+      for await(const [name,handle] of dir.entries()){
+        if(handle.kind!=='file') continue;
+        state.items.push({id:uid(),name,handle,file:null,date:detectDate(name)});
+      }
+      el.folderName.textContent=`Origem: ${dir.name}`;
+      autoSort();
+      log(`Pasta de origem carregada: ${dir.name}.`);
+    }catch(err){
+      if(err?.name!=='AbortError') alert('Não foi possível abrir a pasta: '+err.message);
+    }
+  }
+
+  function updateOutputDirectoryUI(){
+    const savedName=localStorage.getItem(OUTPUT_NAME_KEY) || '';
+    const name=state.outputDir?.name || savedName;
+
+    if(!name){
+      el.outputName.textContent='Nenhuma pasta configurada';
+      el.outputStatus.textContent='Não configurada';
+      el.outputStatus.className='output-status warn';
+      el.settingsOutputPath.value='Não configurada';
+      el.settingsOutputStatus.textContent='Nenhuma Pasta de Saída foi configurada ainda.';
+      return;
+    }
+
+    const displayPath=`…\\${name}`;
+    el.outputName.textContent=`📁 ${displayPath}`;
+    el.settingsOutputPath.value=displayPath;
+
+    if(state.outputDir && state.outputPermission==='granted'){
+      el.outputStatus.textContent='Configurada';
+      el.outputStatus.className='output-status';
+      el.settingsOutputStatus.textContent='Acesso persistente válido. Os arquivos serão gravados automaticamente nesta pasta.';
+    }else if(state.outputDir && state.outputPermission==='prompt'){
+      el.outputStatus.textContent='Autorização necessária';
+      el.outputStatus.className='output-status warn';
+      el.settingsOutputStatus.textContent='A pasta foi recuperada, mas o navegador exige nova autorização de acesso. Não será solicitado outro diretório.';
+    }else if(state.outputDir && state.outputPermission==='denied'){
+      el.outputStatus.textContent='Acesso revogado';
+      el.outputStatus.className='output-status error';
+      el.settingsOutputStatus.textContent='O navegador revogou o acesso. Use “Alterar Pasta de Saída” para autorizar novamente ou escolher outro diretório.';
+    }else if(state.outputDir){
+      el.outputStatus.textContent='Indisponível';
+      el.outputStatus.className='output-status error';
+      el.settingsOutputStatus.textContent='A pasta configurada está temporariamente indisponível. A configuração foi preservada.';
+    }else{
+      el.outputStatus.textContent='Reconfigurar';
+      el.outputStatus.className='output-status warn';
+      el.settingsOutputStatus.textContent='A referência da última pasta existe, mas o acesso persistente não pôde ser recuperado neste navegador.';
+    }
+  }
+
+  async function persistOutputDirectory(dir){
+    await idbSet(OUTPUT_HANDLE_KEY,dir);
+    localStorage.setItem(OUTPUT_NAME_KEY,dir.name);
+    state.outputPersisted=true;
+
+    // Reduz o risco de o navegador descartar o IndexedDB em limpeza automática.
+    // Não altera permissões nem abre qualquer seletor.
+    try{
+      if(navigator.storage && typeof navigator.storage.persist==='function'){
+        await navigator.storage.persist();
+      }
+    }catch(err){
+      console.warn('Persistência reforçada do armazenamento indisponível:',err);
+    }
+  }
+
+  async function removePersistedOutputDirectory(){
+    try{
+      await idbDelete(OUTPUT_HANDLE_KEY);
+    }catch(err){
+      console.warn('Não foi possível remover o handle persistido:',err);
+    }
+    localStorage.removeItem(OUTPUT_NAME_KEY);
+    state.outputPersisted=false;
+  }
+
+  async function getDirectoryPermission(dir,requestIfNeeded=false){
+    if(!dir) return 'denied';
+    try{
+      if(typeof dir.queryPermission!=='function') return 'granted';
+      let permission=await dir.queryPermission({mode:'readwrite'});
+      if(permission==='prompt' && requestIfNeeded && typeof dir.requestPermission==='function'){
+        permission=await dir.requestPermission({mode:'readwrite'});
+      }
+      return permission;
+    }catch(err){
+      console.warn('Falha ao consultar permissão:',err);
+      return 'denied';
+    }
+  }
+
+  async function validateOutputDirectory({requestPermission=false}={}){
+    if(!state.outputDir){
+      updateOutputDirectoryUI();
+      return {ok:false,reason:'missing'};
+    }
+
+    // Se a permissão já está válida nesta sessão, não solicita nem consulta novamente.
+    let permission=state.outputPermission;
+    if(permission!=='granted'){
+      permission=await getDirectoryPermission(state.outputDir,requestPermission);
+      state.outputPermission=permission;
+      updateOutputDirectoryUI();
+    }
+
+    if(permission!=='granted'){
+      return {ok:false,reason:permission==='prompt'?'prompt':'permission'};
+    }
+
+    try{
+      // Verificação silenciosa de acesso real ao diretório.
+      for await(const _entry of state.outputDir.values()){
+        break;
+      }
+      state.outputPermission='granted';
+      updateOutputDirectoryUI();
+      return {ok:true};
+    }catch(err){
+      console.error('Pasta de saída indisponível:',err);
+      // Preserva o handle no IndexedDB para permitir recuperação caso a pasta/unidade volte a ficar disponível.
+      state.outputPermission='unknown';
+      updateOutputDirectoryUI();
+      return {ok:false,reason:'unavailable',error:err};
+    }
+  }
+
+  async function restoreOutputDirectory(){
+    const savedName=localStorage.getItem(OUTPUT_NAME_KEY) || '';
+
+    try{
+      const handle=await idbGet(OUTPUT_HANDLE_KEY);
+      if(handle && handle.kind==='directory'){
+        state.outputDir=handle;
+        state.outputPersisted=true;
+
+        // Consulta silenciosa. Nunca solicita permissão durante a inicialização.
+        state.outputPermission=await getDirectoryPermission(handle,false);
+        updateOutputDirectoryUI();
+
+        if(state.outputPermission==='granted'){
+          // Validação silenciosa sem nova autorização.
+          await validateOutputDirectory({requestPermission:false});
+        }
+        return true;
+      }
+    }catch(err){
+      console.warn('Não foi possível restaurar a Pasta de Saída:',err);
+    }
+
+    state.outputDir=null;
+    state.outputPermission='unknown';
+    state.outputPersisted=false;
+    updateOutputDirectoryUI();
+
+    return false;
+  }
+
+  async function selectOutputFolder(){
+    if(!window.showDirectoryPicker){
+      toast('A seleção da Pasta de Saída requer Google Chrome ou Microsoft Edge atualizado.','error');
+      return false;
+    }
+
+    try{
+      const dir=await window.showDirectoryPicker({
+        mode:'readwrite',
+        id:'renomeador-pasta-saida'
+      });
+
+      state.outputDir=dir;
+      // O próprio seletor foi aberto com mode:'readwrite' por ação explícita do usuário.
+      state.outputPermission='granted';
+
+      try{
+        await persistOutputDirectory(dir);
+      }catch(err){
+        console.error(err);
+        state.outputPersisted=false;
+        toast('Pasta selecionada, mas o navegador não permitiu salvar o acesso persistente.','error');
+      }
+
+      updateOutputDirectoryUI();
+      render();
+      log(`Pasta de saída configurada: ${dir.name}.`);
+      toast(`Pasta de saída configurada: ${dir.name}.`);
+      return true;
+    }catch(err){
+      if(err?.name!=='AbortError'){
+        console.error(err);
+        toast('Não foi possível configurar a Pasta de Saída: '+err.message,'error');
+      }
+      return false;
+    }
+  }
+
+
+  function loadFileList(files,mode='files'){
+    state.sourceDir=null; state.sourceWritable=false; state.sourceMode=mode;
+    state.items=[...files].map(file=>({
+      id:uid(),name:file.name,file,handle:null,date:detectDate(file.name)
+    }));
+    state.removed=0;
+    el.folderName.textContent='Origem: arquivos carregados/arrastados';
+    autoSort();
+    if(state.outputDir){
+      log(`Arquivos carregados/arrastados. Destino automático: ${state.outputDir.name}.`);
+    }else{
+      log('Arquivos carregados/arrastados. Configure a Pasta de Saída em Configurações antes do processamento.');
+    }
+  }
+
+  async function readDirectoryEntry(entry,path='',collector=[]){
+    return new Promise((resolve,reject)=>{
+      if(entry.isFile){
+        entry.file(file=>{
+          try{ Object.defineProperty(file,'_relativePath',{value:path+file.name}); }catch(e){}
+          collector.push(file); resolve(collector);
+        },reject);
+      }else if(entry.isDirectory){
+        const reader=entry.createReader();
+        const readBatch=()=>{
+          reader.readEntries(async entries=>{
+            if(!entries.length){resolve(collector);return;}
+            try{
+              for(const e of entries) await readDirectoryEntry(e,path+entry.name+'/',collector);
+              readBatch();
+            }catch(err){reject(err);}
+          },reject);
+        };
+        readBatch();
+      }else resolve(collector);
+    });
+  }
+
+  async function filesFromDataTransfer(dt){
+    if(!dt) return [];
+
+    const items=Array.from(dt.items || []).filter(it=>it.kind==='file');
+
+    // IMPORTANTE: para múltiplos arquivos do Windows Explorer, capturamos
+    // TODOS de forma síncrona antes de qualquer await. Isso evita o navegador
+    // manter apenas o primeiro item após o evento de drop.
+    let entries=[];
+    if(items.length && typeof items[0].webkitGetAsEntry==='function'){
+      entries=items.map(it=>{
+        try{return it.webkitGetAsEntry();}catch(e){return null;}
+      });
+    }
+
+    const hasDirectory=entries.some(e=>e && e.isDirectory);
+
+    // Caso comum: vários arquivos individuais. getAsFile() é o caminho
+    // mais confiável e retorna todos os itens selecionados de uma vez.
+    if(!hasDirectory && items.length){
+      const direct=items.map(it=>{
+        try{return it.getAsFile();}catch(e){return null;}
+      }).filter(Boolean);
+
+      if(direct.length){
+        return direct;
+      }
+    }
+
+    // Fallback igualmente síncrono via DataTransfer.files.
+    const nativeFiles=Array.from(dt.files || []).filter(Boolean);
+    if(!hasDirectory && nativeFiles.length){
+      return nativeFiles;
+    }
+
+    // Pasta ou combinação com pasta: percorre recursivamente.
+    if(hasDirectory){
+      const collected=[];
+      for(const entry of entries){
+        if(entry) await readDirectoryEntry(entry,'',collected);
+      }
+      if(collected.length) return collected;
+    }
+
+    // API moderna, usada apenas como fallback para estruturas que não foram
+    // resolvidas pelos caminhos anteriores.
+    if(items.length && typeof items[0].getAsFileSystemHandle==='function'){
+      const collected=[];
+      try{
+        async function walkHandle(handle){
+          if(!handle) return;
+          if(handle.kind==='file'){
+            collected.push(await handle.getFile());
+          }else if(handle.kind==='directory'){
+            for await(const child of handle.values()){
+              await walkHandle(child);
+            }
+          }
+        }
+        for(const item of items){
+          const handle=await item.getAsFileSystemHandle();
+          await walkHandle(handle);
+        }
+        if(collected.length) return collected;
+      }catch(err){
+        console.warn('Fallback getAsFileSystemHandle falhou:',err);
+      }
+    }
+
+    return nativeFiles;
+  }
+
+  function isExternalFileDrag(ev){
+    if(state.draggedId) return false; // não interfere no drag interno das linhas
+    const types=Array.from(ev.dataTransfer?.types || []);
+    return types.includes('Files');
+  }
+
+  async function handleDrop(ev){
+    if(!isExternalFileDrag(ev)) return;
+    ev.preventDefault();
+    ev.stopPropagation();
+    document.body.classList.remove('external-drag');
+
+    try{
+      const files=await filesFromDataTransfer(ev.dataTransfer);
+      if(!files.length){
+        log('Nenhum arquivo foi identificado no conteúdo arrastado.');
+        toast('Nenhum arquivo foi identificado no conteúdo arrastado.','error');
+        return;
+      }
+
+      loadFileList(files,'drop');
+      log(`${files.length} arquivo(s) recebido(s) por arrastar e soltar.`);
+      toast(`${files.length} arquivo(s) carregado(s) por arrastar e soltar.`);
+    }catch(err){
+      console.error(err);
+      log('ERRO ao receber arquivos arrastados: '+err.message);
+      toast('Falha ao carregar os arquivos arrastados: '+err.message,'error');
+    }
+  }
+
+  async function getSourceFile(item){
+    if(item.file) return item.file;
+    if(item.handle) return await item.handle.getFile();
+    if(state.sourceDir){
+      const h=await state.sourceDir.getFileHandle(item.name);
+      return await h.getFile();
+    }
+    throw new Error(`Não foi possível acessar o arquivo: ${item.name}`);
+  }
+
+  async function writeCopyToDir(dir,file,newName){
+    // Evita sobrescrever silenciosamente um arquivo já existente.
+    try{
+      await dir.getFileHandle(newName);
+      throw new Error(`Já existe na pasta de saída: ${newName}`);
+    }catch(err){
+      if(err.name!=='NotFoundError' && !String(err.message).startsWith('Já existe')) throw err;
+      if(String(err.message).startsWith('Já existe')) throw err;
+    }
+    const h=await dir.getFileHandle(newName,{create:true});
+    const w=await h.createWritable();
+    await w.write(file);
+    await w.close();
+  }
+
+  async function renameInDir(dir,oldName,newName){
+    const oldHandle=await dir.getFileHandle(oldName);
+    const file=await oldHandle.getFile();
+    const newHandle=await dir.getFileHandle(newName,{create:true});
+    const w=await newHandle.createWritable();
+    await w.write(file);
+    await w.close();
+    await dir.removeEntry(oldName);
+  }
+
+  async function processFiles(){
+    if(!canProcess()) return;
+
+    if(!state.outputDir){
+      openSettings();
+      toast('Configure a Pasta de Saída antes de processar.','error');
+      return;
+    }
+
+    // Se já está autorizada, segue direto. Só solicita autorização quando o navegador
+    // informa explicitamente que ela não está mais válida.
+    const needsPermission=state.outputPermission!=='granted';
+    const validation=await validateOutputDirectory({requestPermission:needsPermission});
+
+    if(!validation.ok){
+      if(validation.reason==='prompt'){
+        toast('O navegador exige uma nova autorização para a Pasta de Saída configurada.','error');
+      }else if(validation.reason==='permission'){
+        toast('O acesso à Pasta de Saída foi revogado. Reautorize em Configurações.','error');
+      }else if(validation.reason==='unavailable'){
+        toast('A Pasta de Saída configurada está indisponível. Verifique a pasta/unidade ou altere em Configurações.','error');
+      }else{
+        toast('Configure a Pasta de Saída em Configurações.','error');
+      }
+      openSettings();
+      return;
+    }
+
+    const nums=numbering();
+    const plan=state.items.map((item,idx)=>({...item,newName:buildNewName(item,nums[idx])}));
+
+    const targets=plan.map(x=>x.newName.toLocaleLowerCase('pt-BR'));
+    const duplicate=targets.find((x,i)=>targets.indexOf(x)!==i);
+    if(duplicate){
+      alert('Há nomes finais duplicados. Ajuste os nomes ou a lista antes de continuar.');
+      return;
+    }
+
+    el.btnApply.disabled=true;
+    el.btnFolder.disabled=true;
+    el.btnOutput.disabled=true;
+
+    try{
+      log(`Iniciando processamento para a pasta de saída: ${state.outputDir.name}...`);
+      for(const x of plan){
+        const file=await getSourceFile(x);
+        await writeCopyToDir(state.outputDir,file,x.newName);
+        log(`${x.name}  =>  ${x.newName}`);
+      }
+      log(`Arquivos gerados em ${state.outputDir.name} com sucesso.`);
+      toast(`Concluído: ${plan.length} arquivo(s) gerado(s) em ${state.outputDir.name}.`);
+    }catch(err){
+      console.error(err);
+      log('ERRO: '+err.message);
+
+      const name=err?.name || '';
+      if(name==='NotFoundError' || name==='NotAllowedError' || name==='SecurityError'){
+        const recheck=await validateOutputDirectory({requestPermission:false});
+        if(!recheck.ok){
+          openSettings();
+        }
+      }
+
+      alert('Ocorreu um erro:\n\n'+err.message);
+    }finally{
+      el.btnFolder.disabled=false;
+      el.btnOutput.disabled=false;
+      render();
+    }
+  }
+
+  function resetAll(){
+    // Origem e lista. A Pasta de Saída é configuração persistente e não é apagada aqui.
+    state.sourceDir=null;
+    state.items=[];
+    state.removed=0;
+    state.sourceWritable=false;
+    state.sourceMode='none';
+    state.draggedId=null;
+
+    // Seletores/arquivos
+    el.fallbackFiles.value='';
+    el.folderName.textContent='Nenhuma origem selecionada';
+    updateOutputDirectoryUI();
+
+    // Formulários: volta ao padrão inicial
+    el.chkRenameAll.checked=false;
+    el.renameAllBase.value='';
+    el.chkSequence.checked=true;
+    el.dateModeNone.checked=true;
+    el.dateModeCurrent.checked=false;
+    el.dateModeManual.checked=false;
+    el.manualDateInput.value='';
+    el.startNumber.value='';
+    el.prefixInput.value='';
+    el.suffixInput.value='';
+    el.replaceFrom.value='';
+    el.replaceTo.value='';
+    el.chkStrip.checked=true;
+
+    // Limpa histórico/log e toast
+    el.log.textContent='';
+    el.log.style.display='none';
+    el.toast.textContent='';
+    el.toast.className='toast';
+
+    // Limpa preferências dos formulários salvas no navegador
+    [
+      'renamerRenameAll',
+      'renamerRenameAllBase',
+      'renamerUseSequence',
+      'renamerDateStampMode',
+      'renamerManualDate',
+      'renamerStartNumber',
+      'renamerPrefix',
+      'renamerSuffix',
+      'renamerReplaceFrom',
+      'renamerReplaceTo'
+    ].forEach(k=>localStorage.removeItem(k));
+
+    render();
+    toast('Tudo foi limpo.');
+  }
+
+  // Metadados do aplicativo
+  document.title=`${APP_META.name} ${APP_META.version}`;
+  el.appName.textContent=APP_META.name;
+  el.aboutTitle.textContent=APP_META.name;
+  el.aboutVersion.textContent=`${APP_META.version} • ${APP_META.release}`;
+  el.aboutVersionBody.textContent=APP_META.version;
+  el.aboutRelease.textContent=APP_META.release;
+  const faviconLink=document.querySelector('link[rel="icon"]');
+  if(faviconLink) el.aboutIcon.src=faviconLink.href;
+
+  function openAbout(){
+    el.aboutModal.classList.add('open');
+    el.aboutCloseBtn.focus();
+  }
+  function closeAbout(){
+    el.aboutModal.classList.remove('open');
+  }
+
+  function openSettings(){
+    el.settingsModal.classList.add('open');
+    updateOutputDirectoryUI();
+    el.btnOutput.focus();
+  }
+
+  function closeSettings(){
+    el.settingsModal.classList.remove('open');
+  }
+
+  el.aboutBtn.addEventListener('click',openAbout);
+  el.aboutCloseX.addEventListener('click',closeAbout);
+  el.aboutCloseBtn.addEventListener('click',closeAbout);
+  el.aboutModal.addEventListener('click',e=>{
+    if(e.target===el.aboutModal) closeAbout();
+  });
+
+  el.settingsBtn.addEventListener('click',openSettings);
+  el.settingsCloseX.addEventListener('click',closeSettings);
+  el.settingsCloseBtn.addEventListener('click',closeSettings);
+  el.settingsModal.addEventListener('click',e=>{
+    if(e.target===el.settingsModal) closeSettings();
+  });
+
+  document.addEventListener('keydown',e=>{
+    if(e.key!=='Escape') return;
+    if(el.aboutModal.classList.contains('open')) closeAbout();
+    if(el.settingsModal.classList.contains('open')) closeSettings();
+  });
+
+  // Tema
+  function applyTheme(theme){
+    document.documentElement.dataset.theme=theme;
+    localStorage.setItem('renamerTheme',theme);
+    el.themeBtn.textContent=theme==='dark'?'Tema claro':'Tema escuro';
+  }
+  applyTheme(localStorage.getItem('renamerTheme')||'light');
+  el.chkRenameAll.checked=localStorage.getItem('renamerRenameAll')==='true';
+  el.renameAllBase.value=localStorage.getItem('renamerRenameAllBase')||'';
+  el.chkSequence.checked=localStorage.getItem('renamerUseSequence')!=='false';
+
+  const savedDateMode=localStorage.getItem('renamerDateStampMode') || 'none';
+  el.dateModeNone.checked=savedDateMode==='none';
+  el.dateModeCurrent.checked=savedDateMode==='current';
+  el.dateModeManual.checked=savedDateMode==='manual';
+  el.manualDateInput.value=localStorage.getItem('renamerManualDate') || '';
+
+  el.startNumber.value=localStorage.getItem('renamerStartNumber')||'';
+  el.prefixInput.value=localStorage.getItem('renamerPrefix')||'';
+  el.suffixInput.value=localStorage.getItem('renamerSuffix')||'';
+  el.replaceFrom.value=localStorage.getItem('renamerReplaceFrom')||'';
+  el.replaceTo.value=localStorage.getItem('renamerReplaceTo')||'';
+  el.themeBtn.addEventListener('click',()=>applyTheme(document.documentElement.dataset.theme==='dark'?'light':'dark'));
+
+  // Eventos
+  el.btnFolder.addEventListener('click',selectSourceFolder);
+  el.btnOutput.addEventListener('click',selectOutputFolder);
+  el.btnAutoSort.addEventListener('click',autoSort);
+  el.btnApply.addEventListener('click',processFiles);
+  el.btnReset.addEventListener('click',resetAll);
+  el.chkRenameAll.addEventListener('change',()=>{
+    localStorage.setItem('renamerRenameAll',String(el.chkRenameAll.checked));
+    render();
+  });
+
+  el.renameAllBase.addEventListener('input',()=>{
+    localStorage.setItem('renamerRenameAllBase',el.renameAllBase.value);
+    render();
+  });
+
+  el.chkSequence.addEventListener('change',()=>{
+    localStorage.setItem('renamerUseSequence',String(el.chkSequence.checked));
+    render();
+  });
+  [el.dateModeNone,el.dateModeCurrent,el.dateModeManual].forEach(radio=>{
+    radio.addEventListener('change',()=>{
+      if(!radio.checked) return;
+      localStorage.setItem('renamerDateStampMode',radio.value);
+      render();
+    });
+  });
+
+  el.manualDateInput.addEventListener('input',()=>{
+    localStorage.setItem('renamerManualDate',el.manualDateInput.value);
+    render();
+  });
+  el.chkStrip.addEventListener('change',render);
+  el.startNumber.addEventListener('input',()=>{
+    localStorage.setItem('renamerStartNumber',el.startNumber.value);
+    render();
+  });
+
+  el.prefixInput.addEventListener('input',()=>{
+    localStorage.setItem('renamerPrefix',el.prefixInput.value);
+    render();
+  });
+  el.suffixInput.addEventListener('input',()=>{
+    localStorage.setItem('renamerSuffix',el.suffixInput.value);
+    render();
+  });
+  el.replaceFrom.addEventListener('input',()=>{
+    localStorage.setItem('renamerReplaceFrom',el.replaceFrom.value);
+    render();
+  });
+  el.replaceTo.addEventListener('input',()=>{
+    localStorage.setItem('renamerReplaceTo',el.replaceTo.value);
+    render();
+  });
+  el.fallbackFiles.addEventListener('change',e=>loadFileList(e.target.files,'files'));
+  el.dropZone.addEventListener('click',()=>el.fallbackFiles.click());
+
+  // Drag externo: aceita arquivos soltos em qualquer ponto da janela.
+  let externalDragDepth=0;
+
+  document.addEventListener('dragenter',e=>{
+    if(!isExternalFileDrag(e)) return;
+    e.preventDefault();
+    externalDragDepth++;
+    document.body.classList.add('external-drag');
+    el.dropZone.classList.add('dragover');
+  });
+
+  document.addEventListener('dragover',e=>{
+    if(!isExternalFileDrag(e)) return;
+    e.preventDefault(); // obrigatório para o navegador permitir o drop
+    if(e.dataTransfer) e.dataTransfer.dropEffect='copy';
+    document.body.classList.add('external-drag');
+    el.dropZone.classList.add('dragover');
+  });
+
+  document.addEventListener('dragleave',e=>{
+    if(!isExternalFileDrag(e)) return;
+    externalDragDepth=Math.max(0,externalDragDepth-1);
+    if(externalDragDepth===0){
+      document.body.classList.remove('external-drag');
+      el.dropZone.classList.remove('dragover');
+    }
+  });
+
+  document.addEventListener('drop',async e=>{
+    if(!isExternalFileDrag(e)) return;
+    externalDragDepth=0;
+    document.body.classList.remove('external-drag');
+    el.dropZone.classList.remove('dragover');
+    await handleDrop(e);
+  });
+
+  if(!window.showDirectoryPicker){
+    el.compatNotice.style.display='block';
+    el.compatNotice.textContent='Para usar pastas com gravação persistente, abra este HTML no Google Chrome ou Microsoft Edge atualizado.';
+  }
+
+  render();
+  updateOutputDirectoryUI();
+
+  // Restaura automaticamente a última Pasta de Saída configurada.
+  restoreOutputDirectory().then(restored=>{
+    render();
+
+    if(!restored){
+      // Primeira utilização: abre somente Configurações.
+      // O seletor de diretório só é aberto quando o usuário clicar em “Alterar Pasta de Saída”.
+      setTimeout(()=>{
+        openSettings();
+        toast('Defina a Pasta de Saída uma única vez em Configurações.','error');
+      },120);
+    }
+  });
+})();
+</script>
+</body>
+</html>
